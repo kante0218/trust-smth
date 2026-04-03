@@ -42,6 +42,11 @@
           <li><a href="#contact" class="nav-link nav-link--cta" data-section="contact">Contact</a></li>
         </ul>
       </nav>
+      <div class="lang-toggle" id="langToggle">
+        <button class="lang-btn active" data-lang="ja">JA</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
       <button class="hamburger" id="hamburger" aria-label="メニューを開く">
         <span></span><span></span><span></span>
       </button>
@@ -60,6 +65,11 @@
         <li><a href="#careers" class="mobile-nav-link">Careers</a></li>
         <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
       </ul>
+      <div class="lang-toggle mobile-lang-toggle" id="mobileLangToggle">
+        <button class="lang-btn active" data-lang="ja">JA</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
     </nav>
   </div>
 
@@ -71,18 +81,18 @@
         <div class="hero-gradient"></div>
       </div>
       <div class="hero-content">
-        <p class="hero-label fade-up">Next-Generation Incubation Ecosystem</p>
+        <p class="hero-label fade-up" data-i18n="hero.label">Next-Generation Incubation Ecosystem</p>
         <h1 class="hero-title fade-up delay-1">
-          <span class="hero-title-line">志の高い起業家と共に、</span>
-          <span class="hero-title-line">未来を創造する。</span>
+          <span class="hero-title-line" data-i18n="hero.title1">志の高い起業家と共に、</span>
+          <span class="hero-title-line" data-i18n="hero.title2">未来を創造する。</span>
         </h1>
-        <p class="hero-desc fade-up delay-2">
+        <p class="hero-desc fade-up delay-2" data-i18n="hero.desc">
           革新的なスタートアップを発掘・育成し、<br>
           社会に新たな価値を生み出すベンチャーキャピタル。
         </p>
         <div class="hero-actions fade-up delay-3">
-          <a href="#contact" class="btn btn--primary">資金調達のご相談</a>
-          <a href="#about" class="btn btn--outline">詳しく見る</a>
+          <a href="#contact" class="btn btn--primary" data-i18n="hero.cta1">資金調達のご相談</a>
+          <a href="#about" class="btn btn--outline" data-i18n="hero.cta2">詳しく見る</a>
         </div>
       </div>
       <div class="hero-scroll">
@@ -96,12 +106,12 @@
       <div class="container">
         <div class="section-header fade-up">
           <span class="section-label">About Us</span>
-          <h2 class="section-title">私たちについて</h2>
+          <h2 class="section-title" data-i18n="about.title">私たちについて</h2>
         </div>
         <div class="about-grid">
           <div class="about-text fade-up">
-            <h3 class="about-heading">次世代の産業を共創する<br>インキュベーション・エコシステム</h3>
-            <p class="about-desc">
+            <h3 class="about-heading" data-i18n="about.heading">次世代の産業を共創する<br>インキュベーション・エコシステム</h3>
+            <p class="about-desc" data-i18n="about.desc">
               TRUST SMITH & CAPITALは、単なる資金提供にとどまらず、
               起業家と共に事業を構想し、成長を加速させる次世代型のベンチャーキャピタルです。
               テクノロジー、ヘルスケア、サステナビリティなど、
@@ -110,15 +120,15 @@
             <div class="about-stats">
               <div class="stat fade-up">
                 <span class="stat-number" data-count="50">0</span><span class="stat-suffix">+</span>
-                <span class="stat-label">投資先企業</span>
+                <span class="stat-label" data-i18n="about.stat1">投資先企業</span>
               </div>
               <div class="stat fade-up delay-1">
-                <span class="stat-number" data-count="200">0</span><span class="stat-suffix">億円</span>
-                <span class="stat-label">累計投資額</span>
+                <span class="stat-number" data-count="200">0</span><span class="stat-suffix" data-i18n="about.stat2suffix">億円</span>
+                <span class="stat-label" data-i18n="about.stat2">累計投資額</span>
               </div>
               <div class="stat fade-up delay-2">
-                <span class="stat-number" data-count="15">0</span><span class="stat-suffix">名</span>
-                <span class="stat-label">専門チーム</span>
+                <span class="stat-number" data-count="15">0</span><span class="stat-suffix" data-i18n="about.stat3suffix">名</span>
+                <span class="stat-label" data-i18n="about.stat3">専門チーム</span>
               </div>
             </div>
           </div>
@@ -135,7 +145,7 @@
         <div class="philosophy fade-up">
           <div class="philosophy-inner">
             <h3 class="philosophy-title">Our Philosophy</h3>
-            <blockquote class="philosophy-quote">
+            <blockquote class="philosophy-quote" data-i18n="about.quote">
               "信頼と革新の力で、<br>次の時代を切り拓く。"
             </blockquote>
             <div class="philosophy-values">
@@ -144,21 +154,21 @@
                   <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/><path d="M16 24l6 6 10-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </div>
                 <h4>Trust</h4>
-                <p>信頼を基盤とした長期的なパートナーシップ</p>
+                <p data-i18n="about.value1desc">信頼を基盤とした長期的なパートナーシップ</p>
               </div>
               <div class="value-card fade-up delay-1">
                 <div class="value-icon">
                   <svg viewBox="0 0 48 48" fill="none"><path d="M24 4l6 12h12l-10 8 4 12-12-8-12 8 4-12L6 16h12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
                 </div>
                 <h4>Innovation</h4>
-                <p>革新的なアイデアを形にする実行力</p>
+                <p data-i18n="about.value2desc">革新的なアイデアを形にする実行力</p>
               </div>
               <div class="value-card fade-up delay-2">
                 <div class="value-icon">
                   <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="16" r="8" stroke="currentColor" stroke-width="2"/><path d="M8 40c0-8 7-14 16-14s16 6 16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
                 </div>
                 <h4>Growth</h4>
-                <p>起業家と共に成長し続ける姿勢</p>
+                <p data-i18n="about.value3desc">起業家と共に成長し続ける姿勢</p>
               </div>
             </div>
           </div>
@@ -171,7 +181,7 @@
       <div class="container">
         <div class="section-header fade-up">
           <span class="section-label">Services</span>
-          <h2 class="section-title">事業内容</h2>
+          <h2 class="section-title" data-i18n="services.title">事業内容</h2>
         </div>
         <div class="services-grid">
           <div class="service-card fade-up">
@@ -179,36 +189,36 @@
             <div class="service-icon">
               <svg viewBox="0 0 64 64" fill="none"><path d="M12 48L24 32L36 38L52 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M44 16h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="52" x2="52" y2="52" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </div>
-            <h3 class="service-title">ベンチャー投資</h3>
-            <p class="service-desc">シード〜シリーズBまで幅広いステージのスタートアップに投資。事業の可能性を見極め、最適な資金を提供します。</p>
-            <a href="#contact" class="service-link" data-contact-type="funding">資金調達のご相談 <span>&rarr;</span></a>
+            <h3 class="service-title" data-i18n="services.s1title">ベンチャー投資</h3>
+            <p class="service-desc" data-i18n="services.s1desc">シード〜シリーズBまで幅広いステージのスタートアップに投資。事業の可能性を見極め、最適な資金を提供します。</p>
+            <a href="#contact" class="service-link" data-contact-type="funding" data-i18n="services.s1link">資金調達のご相談 <span>&rarr;</span></a>
           </div>
           <div class="service-card fade-up delay-1">
             <div class="service-number">02</div>
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg>
             </div>
-            <h3 class="service-title">ハンズオン支援</h3>
-            <p class="service-desc">経営戦略、マーケティング、採用、事業開発まで。投資後も伴走型で事業成長を加速させます。</p>
-            <a href="#contact" class="service-link" data-contact-type="partnership">事業提携のご相談 <span>&rarr;</span></a>
+            <h3 class="service-title" data-i18n="services.s2title">ハンズオン支援</h3>
+            <p class="service-desc" data-i18n="services.s2desc">経営戦略、マーケティング、採用、事業開発まで。投資後も伴走型で事業成長を加速させます。</p>
+            <a href="#contact" class="service-link" data-contact-type="partnership" data-i18n="services.s2link">事業提携のご相談 <span>&rarr;</span></a>
           </div>
           <div class="service-card fade-up delay-2">
             <div class="service-number">03</div>
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/><path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05"/></svg>
             </div>
-            <h3 class="service-title">インキュベーション</h3>
-            <p class="service-desc">起業前のアイデア段階から支援。事業計画の策定、プロトタイプ開発、初期顧客獲得まで並走します。</p>
-            <a href="#contact" class="service-link" data-contact-type="funding">起業のご相談 <span>&rarr;</span></a>
+            <h3 class="service-title" data-i18n="services.s3title">インキュベーション</h3>
+            <p class="service-desc" data-i18n="services.s3desc">起業前のアイデア段階から支援。事業計画の策定、プロトタイプ開発、初期顧客獲得まで並走します。</p>
+            <a href="#contact" class="service-link" data-contact-type="funding" data-i18n="services.s3link">起業のご相談 <span>&rarr;</span></a>
           </div>
           <div class="service-card fade-up delay-3">
             <div class="service-number">04</div>
             <div class="service-icon">
               <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="14" r="5"/><path d="M16 32c0-5 3.6-9 8-9s8 4 8 9"/><circle cx="12" cy="18" r="4"/><path d="M4 34c0-4.5 3.2-7 7-7"/><circle cx="36" cy="18" r="4"/><path d="M44 34c0-4.5-3.2-7-7-7"/></svg>
             </div>
-            <h3 class="service-title">コミュニティ運営</h3>
-            <p class="service-desc">起業家同士のネットワーク構築、メンターマッチング、業界エキスパートとの接点を創出します。</p>
-            <a href="#contact" class="service-link" data-contact-type="other">お問い合わせ <span>&rarr;</span></a>
+            <h3 class="service-title" data-i18n="services.s4title">コミュニティ運営</h3>
+            <p class="service-desc" data-i18n="services.s4desc">起業家同士のネットワーク構築、メンターマッチング、業界エキスパートとの接点を創出します。</p>
+            <a href="#contact" class="service-link" data-contact-type="other" data-i18n="services.s4link">お問い合わせ <span>&rarr;</span></a>
           </div>
         </div>
       </div>
@@ -219,7 +229,7 @@
       <div class="container">
         <div class="section-header fade-up">
           <span class="section-label">Portfolio</span>
-          <h2 class="section-title">投資先企業</h2>
+          <h2 class="section-title" data-i18n="portfolio.title">投資先企業</h2>
         </div>
         <div class="portfolio-filter fade-up">
           <button class="filter-btn active" data-filter="all">All</button>
@@ -235,7 +245,7 @@
             </div>
             <div class="portfolio-card-body">
               <h3>TechVenture Inc.</h3>
-              <p>AI駆動の次世代SaaSプラットフォーム</p>
+              <p data-i18n="portfolio.p1desc">AI駆動の次世代SaaSプラットフォーム</p>
               <span class="portfolio-stage">Series A</span>
             </div>
           </div>
@@ -245,7 +255,7 @@
             </div>
             <div class="portfolio-card-body">
               <h3>MedicalAI Corp.</h3>
-              <p>画像診断AIによる早期疾患検出</p>
+              <p data-i18n="portfolio.p2desc">画像診断AIによる早期疾患検出</p>
               <span class="portfolio-stage">Series B</span>
             </div>
           </div>
@@ -255,7 +265,7 @@
             </div>
             <div class="portfolio-card-body">
               <h3>GreenEnergy Lab</h3>
-              <p>再生可能エネルギーの最適配分プラットフォーム</p>
+              <p data-i18n="portfolio.p3desc">再生可能エネルギーの最適配分プラットフォーム</p>
               <span class="portfolio-stage">Seed</span>
             </div>
           </div>
@@ -265,7 +275,7 @@
             </div>
             <div class="portfolio-card-body">
               <h3>PayFlow</h3>
-              <p>中小企業向けキャッシュフロー最適化</p>
+              <p data-i18n="portfolio.p4desc">中小企業向けキャッシュフロー最適化</p>
               <span class="portfolio-stage">Series A</span>
             </div>
           </div>
@@ -275,7 +285,7 @@
             </div>
             <div class="portfolio-card-body">
               <h3>RoboSense</h3>
-              <p>産業用ロボティクスの知覚AI</p>
+              <p data-i18n="portfolio.p5desc">産業用ロボティクスの知覚AI</p>
               <span class="portfolio-stage">Series A</span>
             </div>
           </div>
@@ -285,7 +295,7 @@
             </div>
             <div class="portfolio-card-body">
               <h3>WellnessConnect</h3>
-              <p>パーソナライズドヘルスケアプラットフォーム</p>
+              <p data-i18n="portfolio.p6desc">パーソナライズドヘルスケアプラットフォーム</p>
               <span class="portfolio-stage">Seed</span>
             </div>
           </div>
@@ -298,47 +308,47 @@
       <div class="container">
         <div class="section-header fade-up">
           <span class="section-label">News</span>
-          <h2 class="section-title">お知らせ</h2>
+          <h2 class="section-title" data-i18n="news.title">お知らせ</h2>
         </div>
         <div class="news-filter fade-up">
-          <button class="news-filter-btn active" data-news-filter="all">すべて</button>
-          <button class="news-filter-btn" data-news-filter="press">プレスリリース</button>
-          <button class="news-filter-btn" data-news-filter="event">イベント</button>
-          <button class="news-filter-btn" data-news-filter="media">メディア掲載</button>
-          <button class="news-filter-btn" data-news-filter="info">お知らせ</button>
+          <button class="news-filter-btn active" data-news-filter="all" data-i18n="news.all">すべて</button>
+          <button class="news-filter-btn" data-news-filter="press" data-i18n="news.press">プレスリリース</button>
+          <button class="news-filter-btn" data-news-filter="event" data-i18n="news.event">イベント</button>
+          <button class="news-filter-btn" data-news-filter="media" data-i18n="news.media">メディア掲載</button>
+          <button class="news-filter-btn" data-news-filter="info" data-i18n="news.info">お知らせ</button>
         </div>
         <div class="news-list" id="newsList">
           <!-- Articles loaded from microCMS -->
           <div class="news-loading" id="newsLoading">
             <div class="spinner"></div>
-            <p>記事を読み込み中...</p>
+            <p data-i18n="news.loading">記事を読み込み中...</p>
           </div>
           <!-- Fallback static content -->
           <div class="news-fallback" id="newsFallback" style="display:none;">
             <article class="news-item fade-up" data-category="press">
               <time class="news-date">2026.04.01</time>
-              <span class="news-category news-category--press">プレスリリース</span>
-              <h3 class="news-title">新規ファンドの設立のお知らせ</h3>
+              <span class="news-category news-category--press" data-i18n="news.cat.press">プレスリリース</span>
+              <h3 class="news-title" data-i18n="news.n1">新規ファンドの設立のお知らせ</h3>
             </article>
             <article class="news-item fade-up delay-1" data-category="event">
               <time class="news-date">2026.03.20</time>
-              <span class="news-category news-category--event">イベント</span>
-              <h3 class="news-title">起業家向けピッチイベント開催のお知らせ</h3>
+              <span class="news-category news-category--event" data-i18n="news.cat.event">イベント</span>
+              <h3 class="news-title" data-i18n="news.n2">起業家向けピッチイベント開催のお知らせ</h3>
             </article>
             <article class="news-item fade-up delay-2" data-category="media">
               <time class="news-date">2026.03.10</time>
-              <span class="news-category news-category--media">メディア掲載</span>
-              <h3 class="news-title">日経新聞にインタビュー記事が掲載されました</h3>
+              <span class="news-category news-category--media" data-i18n="news.cat.media">メディア掲載</span>
+              <h3 class="news-title" data-i18n="news.n3">日経新聞にインタビュー記事が掲載されました</h3>
             </article>
             <article class="news-item fade-up delay-3" data-category="info">
               <time class="news-date">2026.03.01</time>
-              <span class="news-category news-category--info">お知らせ</span>
-              <h3 class="news-title">ウェブサイトをリニューアルしました</h3>
+              <span class="news-category news-category--info" data-i18n="news.cat.info">お知らせ</span>
+              <h3 class="news-title" data-i18n="news.n4">ウェブサイトをリニューアルしました</h3>
             </article>
           </div>
         </div>
         <div class="news-more fade-up" id="newsMore" style="display:none;">
-          <button class="btn btn--secondary" id="newsMoreBtn">もっと見る</button>
+          <button class="btn btn--secondary" id="newsMoreBtn" data-i18n="news.more">もっと見る</button>
         </div>
       </div>
     </section>
@@ -348,31 +358,31 @@
       <div class="container">
         <div class="section-header fade-up">
           <span class="section-label">Team</span>
-          <h2 class="section-title">チーム</h2>
+          <h2 class="section-title" data-i18n="team.title">チーム</h2>
         </div>
         <div class="team-grid">
           <div class="team-card fade-up">
             <div class="team-photo" style="background: linear-gradient(135deg, #2c3e50, #3498db);"></div>
             <div class="team-info">
-              <h3 class="team-name">代表取締役</h3>
+              <h3 class="team-name" data-i18n="team.m1name">代表取締役</h3>
               <p class="team-role">Managing Partner / CEO</p>
-              <p class="team-bio">元大手コンサル出身。10年以上のVC投資経験を持ち、50社以上のスタートアップを支援。</p>
+              <p class="team-bio" data-i18n="team.m1bio">元大手コンサル出身。10年以上のVC投資経験を持ち、50社以上のスタートアップを支援。</p>
             </div>
           </div>
           <div class="team-card fade-up delay-1">
             <div class="team-photo" style="background: linear-gradient(135deg, #2c3e50, #e74c3c);"></div>
             <div class="team-info">
-              <h3 class="team-name">パートナー</h3>
+              <h3 class="team-name" data-i18n="team.m2name">パートナー</h3>
               <p class="team-role">Partner / CTO</p>
-              <p class="team-bio">エンジニア出身。テクノロジー領域の投資判断と技術デューデリジェンスを担当。</p>
+              <p class="team-bio" data-i18n="team.m2bio">エンジニア出身。テクノロジー領域の投資判断と技術デューデリジェンスを担当。</p>
             </div>
           </div>
           <div class="team-card fade-up delay-2">
             <div class="team-photo" style="background: linear-gradient(135deg, #2c3e50, #27ae60);"></div>
             <div class="team-info">
-              <h3 class="team-name">アソシエイト</h3>
+              <h3 class="team-name" data-i18n="team.m3name">アソシエイト</h3>
               <p class="team-role">Associate</p>
-              <p class="team-bio">MBA取得後にVC業界へ。ヘルスケア・サステナビリティ領域を中心に新規投資案件を発掘。</p>
+              <p class="team-bio" data-i18n="team.m3bio">MBA取得後にVC業界へ。ヘルスケア・サステナビリティ領域を中心に新規投資案件を発掘。</p>
             </div>
           </div>
         </div>
@@ -385,11 +395,11 @@
         <div class="careers-content">
           <div class="section-header fade-up">
             <span class="section-label">Careers</span>
-            <h2 class="section-title">採用情報</h2>
+            <h2 class="section-title" data-i18n="careers.title">採用情報</h2>
           </div>
           <div class="careers-intro fade-up">
-            <h3>未来を共に創る仲間を探しています。</h3>
-            <p>
+            <h3 data-i18n="careers.heading">未来を共に創る仲間を探しています。</h3>
+            <p data-i18n="careers.desc">
               TRUST SMITH & CAPITALでは、起業家と共に社会課題の解決に取り組む
               情熱を持ったメンバーを募集しています。
             </p>
@@ -397,44 +407,44 @@
           <div class="careers-positions">
             <div class="position-card fade-up">
               <div class="position-header">
-                <h4 class="position-title">投資担当アソシエイト</h4>
-                <span class="position-type">正社員</span>
+                <h4 class="position-title" data-i18n="careers.p1title">投資担当アソシエイト</h4>
+                <span class="position-type" data-i18n="careers.fulltime">正社員</span>
               </div>
-              <p class="position-desc">スタートアップの発掘・分析・投資実行を担当。投資先の成長支援にも携わります。</p>
+              <p class="position-desc" data-i18n="careers.p1desc">スタートアップの発掘・分析・投資実行を担当。投資先の成長支援にも携わります。</p>
               <div class="position-tags">
-                <span>VC経験歓迎</span>
-                <span>リモート可</span>
-                <span>東京</span>
+                <span data-i18n="careers.p1t1">VC経験歓迎</span>
+                <span data-i18n="careers.p1t2">リモート可</span>
+                <span data-i18n="careers.p1t3">東京</span>
               </div>
             </div>
             <div class="position-card fade-up delay-1">
               <div class="position-header">
-                <h4 class="position-title">バリューアップ担当</h4>
-                <span class="position-type">正社員</span>
+                <h4 class="position-title" data-i18n="careers.p2title">バリューアップ担当</h4>
+                <span class="position-type" data-i18n="careers.fulltime2">正社員</span>
               </div>
-              <p class="position-desc">投資先スタートアップの事業成長支援。戦略立案からオペレーション改善まで幅広く携わります。</p>
+              <p class="position-desc" data-i18n="careers.p2desc">投資先スタートアップの事業成長支援。戦略立案からオペレーション改善まで幅広く携わります。</p>
               <div class="position-tags">
-                <span>コンサル経験歓迎</span>
-                <span>フレックス</span>
-                <span>東京</span>
+                <span data-i18n="careers.p2t1">コンサル経験歓迎</span>
+                <span data-i18n="careers.p2t2">フレックス</span>
+                <span data-i18n="careers.p2t3">東京</span>
               </div>
             </div>
             <div class="position-card fade-up delay-2">
               <div class="position-header">
-                <h4 class="position-title">インターン</h4>
-                <span class="position-type">インターン</span>
+                <h4 class="position-title" data-i18n="careers.p3title">インターン</h4>
+                <span class="position-type" data-i18n="careers.p3type">インターン</span>
               </div>
-              <p class="position-desc">リサーチ・分析業務を中心に、VCの実務を経験できるインターンシップ。週2日〜OK。</p>
+              <p class="position-desc" data-i18n="careers.p3desc">リサーチ・分析業務を中心に、VCの実務を経験できるインターンシップ。週2日〜OK。</p>
               <div class="position-tags">
-                <span>学生歓迎</span>
-                <span>週2日〜</span>
-                <span>東京</span>
+                <span data-i18n="careers.p3t1">学生歓迎</span>
+                <span data-i18n="careers.p3t2">週2日〜</span>
+                <span data-i18n="careers.p3t3">東京</span>
               </div>
             </div>
           </div>
           <div class="careers-cta fade-up">
-            <a href="#contact" class="btn btn--primary">応募する</a>
-            <a href="#contact" class="btn btn--outline">カジュアル面談</a>
+            <a href="#contact" class="btn btn--primary" data-i18n="careers.apply">応募する</a>
+            <a href="#contact" class="btn btn--outline" data-i18n="careers.chat">カジュアル面談</a>
           </div>
         </div>
       </div>
@@ -446,12 +456,12 @@
         <div class="funding-inner fade-up">
           <div class="funding-text">
             <span class="section-label">For Entrepreneurs</span>
-            <h2>資金調達のご相談</h2>
-            <p>事業アイデアの段階から、シリーズBまで。<br>まずはお気軽にご相談ください。</p>
+            <h2 data-i18n="funding.title">資金調達のご相談</h2>
+            <p data-i18n="funding.desc">事業アイデアの段階から、シリーズBまで。<br>まずはお気軽にご相談ください。</p>
           </div>
           <div class="funding-actions">
-            <a href="#contact" class="btn btn--primary btn--lg">相談予約をする</a>
-            <p class="funding-note">初回相談は無料です</p>
+            <a href="#contact" class="btn btn--primary btn--lg" data-i18n="funding.cta">相談予約をする</a>
+            <p class="funding-note" data-i18n="funding.note">初回相談は無料です</p>
           </div>
         </div>
       </div>
@@ -462,24 +472,24 @@
       <div class="container">
         <div class="section-header fade-up">
           <span class="section-label">Contact</span>
-          <h2 class="section-title">お問い合わせ</h2>
+          <h2 class="section-title" data-i18n="contact.title">お問い合わせ</h2>
         </div>
         <div class="contact-grid">
           <div class="contact-info fade-up">
-            <h3>お気軽にお問い合わせください</h3>
-            <p>資金調達のご相談、事業提携、採用についてなど、下記フォームよりお問い合わせください。</p>
+            <h3 data-i18n="contact.heading">お気軽にお問い合わせください</h3>
+            <p data-i18n="contact.desc">資金調達のご相談、事業提携、採用についてなど、下記フォームよりお問い合わせください。</p>
             <div class="contact-details">
               <div class="contact-detail">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 <div>
-                  <strong>所在地</strong>
-                  <p>東京都渋谷区</p>
+                  <strong data-i18n="contact.location">所在地</strong>
+                  <p data-i18n="contact.address">東京都渋谷区</p>
                 </div>
               </div>
               <div class="contact-detail">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 <div>
-                  <strong>メール</strong>
+                  <strong data-i18n="contact.email">メール</strong>
                   <p>info@trustsmith.vc</p>
                 </div>
               </div>
@@ -487,35 +497,35 @@
           </div>
           <form class="contact-form fade-up delay-1" id="contactForm">
             <div class="form-group">
-              <label for="contactType">お問い合わせ種別</label>
+              <label for="contactType" data-i18n="contact.form.type">お問い合わせ種別</label>
               <select id="contactType" name="type" required>
-                <option value="">選択してください</option>
-                <option value="funding">資金調達のご相談</option>
-                <option value="partnership">事業提携</option>
-                <option value="careers">採用について</option>
-                <option value="media">取材・メディア</option>
-                <option value="other">その他</option>
+                <option value="" data-i18n="contact.form.select">選択してください</option>
+                <option value="funding" data-i18n="contact.form.funding">資金調達のご相談</option>
+                <option value="partnership" data-i18n="contact.form.partnership">事業提携</option>
+                <option value="careers" data-i18n="contact.form.careers">採用について</option>
+                <option value="media" data-i18n="contact.form.media">取材・メディア</option>
+                <option value="other" data-i18n="contact.form.other">その他</option>
               </select>
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label for="contactName">お名前</label>
+                <label for="contactName" data-i18n="contact.form.name">お名前</label>
                 <input type="text" id="contactName" name="name" required placeholder="山田 太郎">
               </div>
               <div class="form-group">
-                <label for="contactCompany">会社名</label>
+                <label for="contactCompany" data-i18n="contact.form.company">会社名</label>
                 <input type="text" id="contactCompany" name="company" placeholder="株式会社〇〇">
               </div>
             </div>
             <div class="form-group">
-              <label for="contactEmail">メールアドレス</label>
+              <label for="contactEmail" data-i18n="contact.form.email">メールアドレス</label>
               <input type="email" id="contactEmail" name="email" required placeholder="example@email.com">
             </div>
             <div class="form-group">
-              <label for="contactMessage">お問い合わせ内容</label>
+              <label for="contactMessage" data-i18n="contact.form.message">お問い合わせ内容</label>
               <textarea id="contactMessage" name="message" rows="5" required placeholder="お問い合わせ内容をご記入ください"></textarea>
             </div>
-            <button type="submit" class="btn btn--primary btn--full">送信する</button>
+            <button type="submit" class="btn btn--primary btn--full" data-i18n="contact.form.submit">送信する</button>
           </form>
         </div>
       </div>
@@ -532,7 +542,7 @@
             <span class="logo-amp">&</span>
             <span class="logo-sub">CAPITAL</span>
           </div>
-          <p class="footer-desc">志の高い起業家を発掘し、革新的なスタートアップを創造するVC 兼 次世代型インキュベーション・エコシステム</p>
+          <p class="footer-desc" data-i18n="footer.desc">志の高い起業家を発掘し、革新的なスタートアップを創造するVC 兼 次世代型インキュベーション・エコシステム</p>
         </div>
         <div class="footer-links">
           <h4>Company</h4>

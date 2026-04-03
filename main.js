@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPrivacyPolicy();
   initPortfolioCards();
   loadNewsFromMicroCMS();
+  initLanguageToggle();
 });
 
 // =====================
@@ -741,6 +742,292 @@ function showPortfolioModal(name, desc, stage, tag) {
     }
   };
   document.addEventListener('keydown', onEsc);
+}
+
+// =====================
+// Language Toggle (i18n)
+// =====================
+const translations = {
+  ja: {
+    'hero.label': 'Next-Generation Incubation Ecosystem',
+    'hero.title1': '志の高い起業家と共に、',
+    'hero.title2': '未来を創造する。',
+    'hero.desc': '革新的なスタートアップを発掘・育成し、<br>社会に新たな価値を生み出すベンチャーキャピタル。',
+    'hero.cta1': '資金調達のご相談',
+    'hero.cta2': '詳しく見る',
+    'about.title': '私たちについて',
+    'about.heading': '次世代の産業を共創する<br>インキュベーション・エコシステム',
+    'about.desc': 'TRUST SMITH & CAPITALは、単なる資金提供にとどまらず、起業家と共に事業を構想し、成長を加速させる次世代型のベンチャーキャピタルです。テクノロジー、ヘルスケア、サステナビリティなど、社会課題の解決に挑むスタートアップを支援しています。',
+    'about.stat1': '投資先企業',
+    'about.stat2': '累計投資額',
+    'about.stat2suffix': '億円',
+    'about.stat3': '専門チーム',
+    'about.stat3suffix': '名',
+    'about.quote': '"信頼と革新の力で、<br>次の時代を切り拓く。"',
+    'about.value1desc': '信頼を基盤とした長期的なパートナーシップ',
+    'about.value2desc': '革新的なアイデアを形にする実行力',
+    'about.value3desc': '起業家と共に成長し続ける姿勢',
+    'services.title': '事業内容',
+    'services.s1title': 'ベンチャー投資',
+    'services.s1desc': 'シード〜シリーズBまで幅広いステージのスタートアップに投資。事業の可能性を見極め、最適な資金を提供します。',
+    'services.s1link': '資金調達のご相談 <span>&rarr;</span>',
+    'services.s2title': 'ハンズオン支援',
+    'services.s2desc': '経営戦略、マーケティング、採用、事業開発まで。投資後も伴走型で事業成長を加速させます。',
+    'services.s2link': '事業提携のご相談 <span>&rarr;</span>',
+    'services.s3title': 'インキュベーション',
+    'services.s3desc': '起業前のアイデア段階から支援。事業計画の策定、プロトタイプ開発、初期顧客獲得まで並走します。',
+    'services.s3link': '起業のご相談 <span>&rarr;</span>',
+    'services.s4title': 'コミュニティ運営',
+    'services.s4desc': '起業家同士のネットワーク構築、メンターマッチング、業界エキスパートとの接点を創出します。',
+    'services.s4link': 'お問い合わせ <span>&rarr;</span>',
+    'portfolio.title': '投資先企業',
+    'portfolio.p1desc': 'AI駆動の次世代SaaSプラットフォーム',
+    'portfolio.p2desc': '画像診断AIによる早期疾患検出',
+    'portfolio.p3desc': '再生可能エネルギーの最適配分プラットフォーム',
+    'portfolio.p4desc': '中小企業向けキャッシュフロー最適化',
+    'portfolio.p5desc': '産業用ロボティクスの知覚AI',
+    'portfolio.p6desc': 'パーソナライズドヘルスケアプラットフォーム',
+    'news.title': 'お知らせ',
+    'news.all': 'すべて',
+    'news.press': 'プレスリリース',
+    'news.event': 'イベント',
+    'news.media': 'メディア掲載',
+    'news.info': 'お知らせ',
+    'news.loading': '記事を読み込み中...',
+    'news.cat.press': 'プレスリリース',
+    'news.cat.event': 'イベント',
+    'news.cat.media': 'メディア掲載',
+    'news.cat.info': 'お知らせ',
+    'news.n1': '新規ファンドの設立のお知らせ',
+    'news.n2': '起業家向けピッチイベント開催のお知らせ',
+    'news.n3': '日経新聞にインタビュー記事が掲載されました',
+    'news.n4': 'ウェブサイトをリニューアルしました',
+    'news.more': 'もっと見る',
+    'team.title': 'チーム',
+    'team.m1name': '代表取締役',
+    'team.m1bio': '元大手コンサル出身。10年以上のVC投資経験を持ち、50社以上のスタートアップを支援。',
+    'team.m2name': 'パートナー',
+    'team.m2bio': 'エンジニア出身。テクノロジー領域の投資判断と技術デューデリジェンスを担当。',
+    'team.m3name': 'アソシエイト',
+    'team.m3bio': 'MBA取得後にVC業界へ。ヘルスケア・サステナビリティ領域を中心に新規投資案件を発掘。',
+    'careers.title': '採用情報',
+    'careers.heading': '未来を共に創る仲間を探しています。',
+    'careers.desc': 'TRUST SMITH & CAPITALでは、起業家と共に社会課題の解決に取り組む情熱を持ったメンバーを募集しています。',
+    'careers.p1title': '投資担当アソシエイト',
+    'careers.fulltime': '正社員',
+    'careers.p1desc': 'スタートアップの発掘・分析・投資実行を担当。投資先の成長支援にも携わります。',
+    'careers.p1t1': 'VC経験歓迎',
+    'careers.p1t2': 'リモート可',
+    'careers.p1t3': '東京',
+    'careers.p2title': 'バリューアップ担当',
+    'careers.fulltime2': '正社員',
+    'careers.p2desc': '投資先スタートアップの事業成長支援。戦略立案からオペレーション改善まで幅広く携わります。',
+    'careers.p2t1': 'コンサル経験歓迎',
+    'careers.p2t2': 'フレックス',
+    'careers.p2t3': '東京',
+    'careers.p3title': 'インターン',
+    'careers.p3type': 'インターン',
+    'careers.p3desc': 'リサーチ・分析業務を中心に、VCの実務を経験できるインターンシップ。週2日〜OK。',
+    'careers.p3t1': '学生歓迎',
+    'careers.p3t2': '週2日〜',
+    'careers.p3t3': '東京',
+    'careers.apply': '応募する',
+    'careers.chat': 'カジュアル面談',
+    'funding.title': '資金調達のご相談',
+    'funding.desc': '事業アイデアの段階から、シリーズBまで。<br>まずはお気軽にご相談ください。',
+    'funding.cta': '相談予約をする',
+    'funding.note': '初回相談は無料です',
+    'contact.title': 'お問い合わせ',
+    'contact.heading': 'お気軽にお問い合わせください',
+    'contact.desc': '資金調達のご相談、事業提携、採用についてなど、下記フォームよりお問い合わせください。',
+    'contact.location': '所在地',
+    'contact.address': '東京都渋谷区',
+    'contact.email': 'メール',
+    'contact.form.type': 'お問い合わせ種別',
+    'contact.form.select': '選択してください',
+    'contact.form.funding': '資金調達のご相談',
+    'contact.form.partnership': '事業提携',
+    'contact.form.careers': '採用について',
+    'contact.form.media': '取材・メディア',
+    'contact.form.other': 'その他',
+    'contact.form.name': 'お名前',
+    'contact.form.company': '会社名',
+    'contact.form.email': 'メールアドレス',
+    'contact.form.message': 'お問い合わせ内容',
+    'contact.form.submit': '送信する',
+    'footer.desc': '志の高い起業家を発掘し、革新的なスタートアップを創造するVC 兼 次世代型インキュベーション・エコシステム'
+  },
+  en: {
+    'hero.label': 'Next-Generation Incubation Ecosystem',
+    'hero.title1': 'Creating the future',
+    'hero.title2': 'with ambitious entrepreneurs.',
+    'hero.desc': 'A venture capital firm that discovers and nurtures<br>innovative startups to create new value for society.',
+    'hero.cta1': 'Funding Consultation',
+    'hero.cta2': 'Learn More',
+    'about.title': 'About Us',
+    'about.heading': 'Co-creating Next-Generation<br>Industries Together',
+    'about.desc': 'TRUST SMITH & CAPITAL goes beyond mere funding. We are a next-generation venture capital firm that co-creates businesses with entrepreneurs and accelerates growth. We support startups tackling social challenges in technology, healthcare, sustainability and more.',
+    'about.stat1': 'Portfolio Companies',
+    'about.stat2': 'Total Investment',
+    'about.stat2suffix': 'B JPY',
+    'about.stat3': 'Expert Team',
+    'about.stat3suffix': '',
+    'about.quote': '"Pioneering the next era<br>with trust and innovation."',
+    'about.value1desc': 'Long-term partnerships built on trust',
+    'about.value2desc': 'Execution power to bring innovative ideas to life',
+    'about.value3desc': 'A commitment to growing alongside entrepreneurs',
+    'services.title': 'Services',
+    'services.s1title': 'Venture Investment',
+    'services.s1desc': 'Investing in startups from seed to Series B. We identify business potential and provide optimal funding.',
+    'services.s1link': 'Funding Inquiry <span>&rarr;</span>',
+    'services.s2title': 'Hands-on Support',
+    'services.s2desc': 'From business strategy and marketing to hiring and business development. We accelerate growth with hands-on support post-investment.',
+    'services.s2link': 'Partnership Inquiry <span>&rarr;</span>',
+    'services.s3title': 'Incubation',
+    'services.s3desc': 'Supporting from the idea stage before founding. We work alongside you from business planning to prototype development and early customer acquisition.',
+    'services.s3link': 'Startup Inquiry <span>&rarr;</span>',
+    'services.s4title': 'Community',
+    'services.s4desc': 'Building networks among entrepreneurs, mentor matching, and creating connections with industry experts.',
+    'services.s4link': 'Contact Us <span>&rarr;</span>',
+    'portfolio.title': 'Portfolio',
+    'portfolio.p1desc': 'AI-powered next-generation SaaS platform',
+    'portfolio.p2desc': 'Early disease detection through AI image diagnostics',
+    'portfolio.p3desc': 'Renewable energy optimal distribution platform',
+    'portfolio.p4desc': 'Cash flow optimization for SMEs',
+    'portfolio.p5desc': 'Perceptual AI for industrial robotics',
+    'portfolio.p6desc': 'Personalized healthcare platform',
+    'news.title': 'News',
+    'news.all': 'All',
+    'news.press': 'Press Release',
+    'news.event': 'Event',
+    'news.media': 'Media',
+    'news.info': 'Announcement',
+    'news.loading': 'Loading articles...',
+    'news.cat.press': 'Press Release',
+    'news.cat.event': 'Event',
+    'news.cat.media': 'Media',
+    'news.cat.info': 'Announcement',
+    'news.n1': 'Announcement of New Fund Establishment',
+    'news.n2': 'Pitch Event for Entrepreneurs',
+    'news.n3': 'Interview Published in Nikkei Newspaper',
+    'news.n4': 'Website Renewal',
+    'news.more': 'Load More',
+    'team.title': 'Team',
+    'team.m1name': 'Representative Director',
+    'team.m1bio': 'Former major consulting firm. Over 10 years of VC investment experience, supporting 50+ startups.',
+    'team.m2name': 'Partner',
+    'team.m2bio': 'Engineering background. Responsible for technology investment decisions and technical due diligence.',
+    'team.m3name': 'Associate',
+    'team.m3bio': 'Entered VC after MBA. Focuses on discovering new investment opportunities in healthcare and sustainability.',
+    'careers.title': 'Careers',
+    'careers.heading': 'Join us in creating the future.',
+    'careers.desc': 'We are looking for passionate team members who want to tackle social challenges together with entrepreneurs.',
+    'careers.p1title': 'Investment Associate',
+    'careers.fulltime': 'Full-time',
+    'careers.p1desc': 'Responsible for startup discovery, analysis, and investment execution. Also involved in portfolio growth support.',
+    'careers.p1t1': 'VC Experience Welcome',
+    'careers.p1t2': 'Remote OK',
+    'careers.p1t3': 'Tokyo',
+    'careers.p2title': 'Value-up Manager',
+    'careers.fulltime2': 'Full-time',
+    'careers.p2desc': 'Growth support for portfolio startups. Involved in strategy planning through operational improvement.',
+    'careers.p2t1': 'Consulting Exp. Welcome',
+    'careers.p2t2': 'Flextime',
+    'careers.p2t3': 'Tokyo',
+    'careers.p3title': 'Intern',
+    'careers.p3type': 'Intern',
+    'careers.p3desc': 'Internship centered on research and analysis, gaining hands-on VC experience. 2+ days/week.',
+    'careers.p3t1': 'Students Welcome',
+    'careers.p3t2': '2+ Days/Week',
+    'careers.p3t3': 'Tokyo',
+    'careers.apply': 'Apply Now',
+    'careers.chat': 'Casual Chat',
+    'funding.title': 'Funding Consultation',
+    'funding.desc': 'From business ideas to Series B.<br>Feel free to reach out.',
+    'funding.cta': 'Book a Consultation',
+    'funding.note': 'First consultation is free',
+    'contact.title': 'Contact',
+    'contact.heading': 'Get in Touch',
+    'contact.desc': 'For funding consultations, business partnerships, careers, and more. Please use the form below.',
+    'contact.location': 'Location',
+    'contact.address': 'Shibuya, Tokyo',
+    'contact.email': 'Email',
+    'contact.form.type': 'Inquiry Type',
+    'contact.form.select': 'Please select',
+    'contact.form.funding': 'Funding Consultation',
+    'contact.form.partnership': 'Business Partnership',
+    'contact.form.careers': 'Careers',
+    'contact.form.media': 'Press / Media',
+    'contact.form.other': 'Other',
+    'contact.form.name': 'Name',
+    'contact.form.company': 'Company',
+    'contact.form.email': 'Email Address',
+    'contact.form.message': 'Message',
+    'contact.form.submit': 'Send',
+    'footer.desc': 'A venture capital firm that discovers ambitious entrepreneurs and creates innovative startups as a next-generation incubation ecosystem.'
+  }
+};
+
+// Placeholder translations for form inputs
+const placeholders = {
+  ja: {
+    contactName: '山田 太郎',
+    contactCompany: '株式会社〇〇',
+    contactEmail: 'example@email.com',
+    contactMessage: 'お問い合わせ内容をご記入ください'
+  },
+  en: {
+    contactName: 'Taro Yamada',
+    contactCompany: 'Company Inc.',
+    contactEmail: 'example@email.com',
+    contactMessage: 'Please enter your inquiry'
+  }
+};
+
+let currentLang = localStorage.getItem('lang') || 'ja';
+
+function setLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang;
+
+  const dict = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key] !== undefined) {
+      el.innerHTML = dict[key];
+    }
+  });
+
+  // Update placeholders
+  const ph = placeholders[lang];
+  Object.keys(ph).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.placeholder = ph[id];
+  });
+
+  // Update active state on all toggle groups
+  document.querySelectorAll('.lang-toggle').forEach(toggle => {
+    toggle.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+  });
+}
+
+function initLanguageToggle() {
+  document.querySelectorAll('.lang-toggle').forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      const btn = e.target.closest('.lang-btn');
+      if (!btn) return;
+      const lang = btn.dataset.lang;
+      setLanguage(lang);
+    });
+  });
+
+  // Apply saved language
+  if (currentLang !== 'ja') {
+    setLanguage(currentLang);
+  }
 }
 
 // CSS animation keyframe (injected dynamically)
