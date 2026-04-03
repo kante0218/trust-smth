@@ -38,6 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initContactForm();
   initSmoothScroll();
+  initPrivacyPolicy();
+  initPortfolioCards();
   loadNewsFromMicroCMS();
 });
 
@@ -343,13 +345,42 @@ function initContactForm() {
 
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
 
-    // ここにフォーム送信処理を実装
-    // 例: Firebase Functions, Formspree, SendGrid等
+    // Disable button during submission
+    submitBtn.disabled = true;
+    submitBtn.textContent = '送信中...';
+    submitBtn.style.opacity = '0.6';
+
+    // Simulate form submission (replace with actual API call)
+    // 例: fetch('https://formspree.io/f/YOUR_FORM_ID', { method: 'POST', body: formData })
     console.log('Form data:', data);
 
-    alert('お問い合わせありがとうございます。\n担当者より折り返しご連絡いたします。');
-    form.reset();
+    setTimeout(() => {
+      // Remove existing message if any
+      const existingMsg = form.querySelector('.form-success');
+      if (existingMsg) existingMsg.remove();
+
+      // Show success message
+      const msg = document.createElement('div');
+      msg.className = 'form-success';
+      msg.style.cssText = `
+        background: rgba(0,224,158,0.1); border: 2px solid #00e09e;
+        padding: 20px 24px; margin-top: 20px; text-align: center;
+        font-weight: 700; color: #000; font-size: 0.9rem;
+      `;
+      msg.textContent = 'お問い合わせありがとうございます。担当者より折り返しご連絡いたします。';
+      form.appendChild(msg);
+
+      form.reset();
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+      submitBtn.style.opacity = '';
+
+      // Remove message after 5 seconds
+      setTimeout(() => { msg.remove(); }, 5000);
+    }, 800);
   });
 }
 
@@ -359,9 +390,19 @@ function initContactForm() {
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
-      const target = document.querySelector(anchor.getAttribute('href'));
+      const href = anchor.getAttribute('href');
+      if (!href || href === '#') return;
+      const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
+
+        // Auto-select contact type if service link has data-contact-type
+        const contactType = anchor.dataset.contactType;
+        if (contactType && href === '#contact') {
+          const select = document.getElementById('contactType');
+          if (select) select.value = contactType;
+        }
+
         const offset = 80;
         const top = target.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: 'smooth' });
@@ -379,9 +420,9 @@ async function loadNewsFromMicroCMS() {
   const fallbackEl = document.getElementById('newsFallback');
   const newsList = document.getElementById('newsList');
 
-  // APIキーが未設定の場合はフォールバック表示
+  // APIキーが未設定の場合はフォールバック表示（スピナーを一切見せない）
   if (apiKey === 'YOUR_API_KEY' || !apiKey) {
-    if (loadingEl) loadingEl.style.display = 'none';
+    if (loadingEl) loadingEl.remove();
     if (fallbackEl) fallbackEl.style.display = 'block';
     console.info(
       '[microCMS] APIキーが未設定です。\n' +
@@ -565,6 +606,141 @@ function escapeHtml(str) {
   const div = document.createElement('div');
   div.textContent = str;
   return div.innerHTML;
+}
+
+// =====================
+// Privacy Policy Modal
+// =====================
+function initPrivacyPolicy() {
+  const link = document.getElementById('privacyPolicyLink');
+  if (!link) return;
+
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    showPrivacyPolicyModal();
+  });
+}
+
+function showPrivacyPolicyModal() {
+  const existing = document.getElementById('privacyModal');
+  if (existing) existing.remove();
+
+  const modal = document.createElement('div');
+  modal.id = 'privacyModal';
+  modal.style.cssText = `
+    position: fixed; inset: 0; z-index: 2000;
+    background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px; opacity: 0; transition: opacity 0.3s;
+  `;
+
+  modal.innerHTML = `
+    <div style="
+      background: #fff; border-radius: 0; max-width: 720px; width: 100%;
+      max-height: 80vh; overflow-y: auto; padding: 48px;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.15);
+    ">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:24px;">
+        <h2 style="font-size:1.5rem; font-weight:900; color:#0a1628;">プライバシーポリシー</h2>
+        <button onclick="this.closest('#privacyModal').remove()" style="
+          background:none; border:none; font-size:1.5rem; cursor:pointer;
+          color:#9ca3af; padding:4px 8px; line-height:1;
+        ">&times;</button>
+      </div>
+      <div style="font-size:0.9rem; color:#374151; line-height:2;">
+        <h3 style="font-size:1.1rem; font-weight:700; margin:24px 0 12px; color:#0a1628;">1. 個人情報の取得</h3>
+        <p>当社は、お問い合わせフォーム等を通じて、お名前、メールアドレス、会社名等の個人情報を取得することがあります。</p>
+        <h3 style="font-size:1.1rem; font-weight:700; margin:24px 0 12px; color:#0a1628;">2. 利用目的</h3>
+        <p>取得した個人情報は、お問い合わせへの対応、サービスのご案内、その他当社事業に関連する目的に利用いたします。</p>
+        <h3 style="font-size:1.1rem; font-weight:700; margin:24px 0 12px; color:#0a1628;">3. 第三者への提供</h3>
+        <p>法令に基づく場合を除き、ご本人の同意なく個人情報を第三者に提供することはありません。</p>
+        <h3 style="font-size:1.1rem; font-weight:700; margin:24px 0 12px; color:#0a1628;">4. 安全管理</h3>
+        <p>個人情報の漏洩、滅失又は毀損の防止のため、適切な安全管理措置を講じます。</p>
+        <h3 style="font-size:1.1rem; font-weight:700; margin:24px 0 12px; color:#0a1628;">5. お問い合わせ</h3>
+        <p>個人情報の取扱いに関するお問い合わせは、当サイトのお問い合わせフォームよりご連絡ください。</p>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+  requestAnimationFrame(() => { modal.style.opacity = '1'; });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.remove();
+  });
+
+  const onEsc = (e) => {
+    if (e.key === 'Escape') {
+      modal.remove();
+      document.removeEventListener('keydown', onEsc);
+    }
+  };
+  document.addEventListener('keydown', onEsc);
+}
+
+// =====================
+// Portfolio Card Click
+// =====================
+function initPortfolioCards() {
+  document.querySelectorAll('.portfolio-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const name = card.querySelector('h3')?.textContent || '';
+      const desc = card.querySelector('p')?.textContent || '';
+      const stage = card.querySelector('.portfolio-stage')?.textContent || '';
+      const tag = card.querySelector('.portfolio-tag')?.textContent || '';
+      showPortfolioModal(name, desc, stage, tag);
+    });
+  });
+}
+
+function showPortfolioModal(name, desc, stage, tag) {
+  const existing = document.getElementById('portfolioModal');
+  if (existing) existing.remove();
+
+  const modal = document.createElement('div');
+  modal.id = 'portfolioModal';
+  modal.style.cssText = `
+    position: fixed; inset: 0; z-index: 2000;
+    background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px; opacity: 0; transition: opacity 0.3s;
+  `;
+
+  modal.innerHTML = `
+    <div style="
+      background: #fff; border-radius: 0; max-width: 560px; width: 100%;
+      padding: 48px; box-shadow: 0 25px 80px rgba(0,0,0,0.15);
+    ">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:24px;">
+        <span style="font-size:0.75rem; font-weight:700; background:#00e09e; color:#000; padding:4px 12px; text-transform:uppercase; letter-spacing:0.05em;">${escapeHtml(tag)}</span>
+        <button onclick="this.closest('#portfolioModal').remove()" style="
+          background:none; border:none; font-size:1.5rem; cursor:pointer;
+          color:#9ca3af; padding:4px 8px; line-height:1;
+        ">&times;</button>
+      </div>
+      <h2 style="font-size:1.5rem; font-weight:900; color:#0a1628; margin-bottom:12px;">${escapeHtml(name)}</h2>
+      <p style="font-size:0.95rem; color:#374151; line-height:1.9; margin-bottom:20px;">${escapeHtml(desc)}</p>
+      <span style="font-size:0.8rem; font-weight:700; color:#000; background:rgba(0,224,158,0.15); padding:6px 16px;">${escapeHtml(stage)}</span>
+      <div style="margin-top:32px; padding-top:24px; border-top:1px solid #e8e8e8;">
+        <p style="font-size:0.85rem; color:#6b7280; line-height:1.8;">この企業についての詳細やご質問は、<a href="#contact" style="color:#00c98e; font-weight:700;" onclick="this.closest('#portfolioModal').remove()">お問い合わせフォーム</a>よりご連絡ください。</p>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+  requestAnimationFrame(() => { modal.style.opacity = '1'; });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.remove();
+  });
+
+  const onEsc = (e) => {
+    if (e.key === 'Escape') {
+      modal.remove();
+      document.removeEventListener('keydown', onEsc);
+    }
+  };
+  document.addEventListener('keydown', onEsc);
 }
 
 // CSS animation keyframe (injected dynamically)

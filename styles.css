@@ -830,6 +830,7 @@ ul {
   background: var(--color-bg);
   border: 2px solid var(--color-border-light);
   transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+  cursor: pointer;
 }
 
 .portfolio-card.hidden {
