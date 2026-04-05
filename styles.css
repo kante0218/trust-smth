@@ -95,11 +95,12 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 24px;
 }
 
 .loader-logo {
   font-family: var(--font-en);
-  font-size: 1.8rem;
+  font-size: clamp(1.1rem, 5vw, 1.8rem);
   color: var(--color-primary);
   letter-spacing: 0.12em;
   font-weight: 900;
@@ -778,7 +779,7 @@ ul {
 .service-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-  border-color: var(--color-accent);
+  border-color: var(--color-primary);
 }
 
 .service-number {
@@ -793,7 +794,20 @@ ul {
 }
 
 .service-card:hover .service-number {
-  color: var(--color-accent-glow);
+  color: rgba(0, 0, 0, 0.06);
+}
+
+/* Touch device support for service cards */
+@media (hover: none) {
+  .service-card:active {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-primary);
+  }
+
+  .service-card:active .service-number {
+    color: rgba(0, 0, 0, 0.06);
+  }
 }
 
 .service-icon {
@@ -1535,6 +1549,504 @@ ul {
 .back-to-top svg {
   width: 20px;
   height: 20px;
+}
+
+/* --- Philosophy Manifesto --- */
+.philosophy-manifesto {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.manifesto-line {
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 2;
+  letter-spacing: 0.03em;
+}
+
+.manifesto-line--accent {
+  color: var(--color-accent-dark);
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 900;
+  margin-top: 8px;
+}
+
+.manifesto-break {
+  height: 24px;
+}
+
+/* --- Support --- */
+.support {
+  background: var(--color-bg-light);
+}
+
+.support-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 56px;
+}
+
+.support-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-weight: 900;
+  color: var(--color-primary);
+  margin-bottom: 24px;
+}
+
+.support-desc {
+  font-size: 0.92rem;
+  color: var(--color-text-light);
+  line-height: 2;
+  margin-bottom: 16px;
+}
+
+.support-desc--highlight {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.support-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.support-card {
+  background: var(--color-bg);
+  padding: 40px 36px;
+  border: 2px solid var(--color-border-light);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.support-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+.support-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.support-card-header svg {
+  width: 28px;
+  height: 28px;
+  color: var(--color-accent-dark);
+  flex-shrink: 0;
+}
+
+.support-card-header h4 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--color-primary);
+}
+
+.support-list {
+  list-style: none;
+  padding: 0;
+}
+
+.support-list li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.88rem;
+  color: var(--color-text-light);
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+.support-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+}
+
+/* --- Investment Strategy --- */
+.strategy {
+  background: var(--color-bg-dark);
+}
+
+.strategy .section-label {
+  color: var(--color-accent);
+}
+
+.strategy .section-title {
+  color: var(--color-text-white);
+}
+
+.strategy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.strategy-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 36px 32px;
+  transition: transform var(--transition), border-color var(--transition);
+}
+
+.strategy-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+}
+
+.strategy-card-title {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.strategy-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.strategy-tag {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-white);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.strategy-note {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.8;
+}
+
+.strategy-amount {
+  font-family: var(--font-en);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: var(--color-accent);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.strategy-amount span {
+  font-size: 0.5em;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 700;
+}
+
+.strategy-lead {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--color-text-white);
+}
+
+/* --- Founder --- */
+.founder {
+  background: var(--color-bg);
+}
+
+.founder-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.founder-profile {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.founder-avatar {
+  flex-shrink: 0;
+}
+
+.founder-avatar-placeholder {
+  width: 120px;
+  height: 120px;
+  background: var(--color-bg-light);
+  border: 3px solid var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.founder-avatar-placeholder svg {
+  width: 48px;
+  height: 48px;
+  color: var(--color-text-light);
+}
+
+.founder-name {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--color-primary);
+  margin-bottom: 4px;
+}
+
+.founder-role {
+  font-family: var(--font-en);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-accent-dark);
+  letter-spacing: 0.05em;
+}
+
+.founder-career {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.founder-career-item {
+  display: flex;
+  gap: 20px;
+  padding: 24px;
+  background: var(--color-bg-light);
+  border-left: 4px solid var(--color-accent);
+  transition: transform var(--transition);
+}
+
+.founder-career-item:hover {
+  transform: translateX(4px);
+}
+
+.founder-career-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.founder-career-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--color-accent-dark);
+}
+
+.founder-career-item strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: var(--color-primary);
+  margin-bottom: 6px;
+}
+
+.founder-career-item p {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  line-height: 1.7;
+}
+
+/* --- Program --- */
+.program {
+  background: var(--color-bg-light);
+}
+
+.program-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.program-card {
+  background: var(--color-bg);
+  padding: 40px 36px;
+  border: 2px solid var(--color-border-light);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.program-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+.program-card-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: var(--color-accent-dark);
+}
+
+.program-card-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.program-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--color-primary);
+  margin-bottom: 20px;
+}
+
+.program-card-desc {
+  font-size: 0.88rem;
+  color: var(--color-text-light);
+  line-height: 1.9;
+  margin-bottom: 16px;
+}
+
+.program-card-highlight {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.9;
+}
+
+/* --- What is TRUST SMITH --- */
+.trustsmith {
+  background: var(--color-bg);
+}
+
+.trustsmith-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.trustsmith-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  line-height: 2;
+  margin-bottom: 32px;
+}
+
+.trustsmith-features {
+  margin-bottom: 32px;
+}
+
+.trustsmith-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--color-bg-light);
+  margin-bottom: 12px;
+  border-left: 4px solid var(--color-accent);
+}
+
+.trustsmith-feature-dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--color-accent);
+  margin-top: 8px;
+}
+
+.trustsmith-feature p {
+  font-size: 0.92rem;
+  color: var(--color-text);
+  line-height: 1.8;
+}
+
+.trustsmith-feature strong {
+  color: var(--color-primary);
+}
+
+.trustsmith-tagline {
+  font-family: var(--font-en);
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-weight: 900;
+  color: var(--color-primary);
+  text-align: center;
+  margin: 48px 0 40px;
+  letter-spacing: 0.02em;
+}
+
+.trustsmith-links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.trustsmith-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border: 2px solid var(--color-primary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  transition: all var(--transition);
+}
+
+.trustsmith-link:hover {
+  background: var(--color-primary);
+  color: var(--color-accent);
+}
+
+.trustsmith-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* --- Outline --- */
+.outline {
+  background: var(--color-bg-dark);
+}
+
+.outline .section-label {
+  color: var(--color-accent);
+}
+
+.outline .section-title {
+  color: var(--color-text-white);
+}
+
+.outline-table {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.outline-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 24px 0;
+}
+
+.outline-row:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.outline-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  padding-top: 2px;
+}
+
+.outline-value {
+  font-size: 0.95rem;
+  color: var(--color-text-white);
+  line-height: 1.8;
 }
 
 /* --- Animations --- */
