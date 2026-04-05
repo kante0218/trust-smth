@@ -13,18 +13,18 @@
 :root {
   --color-primary: #000000;
   --color-primary-light: #1a1a1a;
-  --color-accent: #00e09e;
-  --color-accent-light: #33ffbe;
-  --color-accent-dark: #00e09e;
-  --color-accent-glow: rgba(0, 224, 158, 0.15);
-  --color-emerald: #00e09e;
+  --color-accent: #22F2BF;
+  --color-accent-light: #4ff5cf;
+  --color-accent-dark: #22F2BF;
+  --color-accent-glow: rgba(34, 242, 191, 0.15);
+  --color-emerald: #22F2BF;
   --color-text: #000000;
   --color-text-light: #4a4a4a;
   --color-text-white: #ffffff;
   --color-bg: #ffffff;
   --color-bg-light: #f5f5f5;
   --color-bg-dark: #000000;
-  --color-bg-emerald: #00e09e;
+  --color-bg-emerald: #22F2BF;
   --color-border: #d4d4d4;
   --color-border-light: #e8e8e8;
   --font-heading: 'Noto Sans JP', 'Helvetica Neue', Arial, sans-serif;
@@ -179,6 +179,10 @@ ul {
   color: var(--color-primary);
   font-weight: 400;
   margin: 0 2px;
+}
+
+.footer .logo-amp {
+  color: var(--color-text-white);
 }
 
 .logo-sub {
@@ -411,16 +415,7 @@ ul {
 }
 
 .hero-gradient {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(0, 0, 0, 0.04) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 40%);
-}
-
-.hero-particles {
-  position: absolute;
-  inset: 0;
+  display: none;
 }
 
 .hero-content {
@@ -684,7 +679,7 @@ ul {
 }
 
 .about-img--2 {
-  background: #00e09e;
+  background: #22F2BF;
 }
 
 .about-img--3 {
@@ -1421,6 +1416,11 @@ ul {
   margin-bottom: 16px;
 }
 
+.footer-logo .logo-amp,
+.footer-logo .logo-sub {
+  color: inherit;
+}
+
 .footer-desc {
   font-size: 0.82rem;
   color: rgba(255, 255, 255, 0.4);
@@ -1593,24 +1593,68 @@ ul {
     display: none;
   }
 
+  .lang-toggle:not(.mobile-lang-toggle) {
+    display: none;
+  }
+
   .hamburger {
     display: flex;
   }
 
+  /* Header logo - prevent wrapping */
+  .logo {
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  .logo-main,
+  .logo-sub,
+  .logo-amp {
+    white-space: nowrap;
+  }
+
+  .logo-sub {
+    font-size: 0.75rem;
+  }
+
   .section {
-    padding: 80px 0;
+    padding: 64px 0;
   }
 
   .section-header {
-    margin-bottom: 40px;
+    margin-bottom: 36px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 100svh;
   }
 
   .hero-content {
     text-align: center;
+    padding: 0 20px;
+  }
+
+  .hero-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
+    margin-bottom: 20px;
   }
 
   .hero-desc {
     max-width: 100%;
+    font-size: 0.88rem;
+    margin-bottom: 32px;
+    line-height: 1.9;
   }
 
   .hero-desc br {
@@ -1619,6 +1663,38 @@ ul {
 
   .hero-actions {
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 280px;
+    padding: 14px 24px;
+    font-size: 0.85rem;
+  }
+
+  .hero-scroll {
+    bottom: 24px;
+  }
+
+  /* About */
+  .about-grid {
+    margin-bottom: 48px;
+  }
+
+  .about-heading {
+    font-size: 1.3rem;
+  }
+
+  .about-heading br {
+    display: none;
+  }
+
+  .about-desc {
+    font-size: 0.88rem;
+    margin-bottom: 24px;
   }
 
   .about-stats {
@@ -1630,42 +1706,185 @@ ul {
   }
 
   .about-image-grid {
-    height: 280px;
+    height: 200px;
+    gap: 8px;
   }
 
+  /* Philosophy */
   .philosophy {
-    padding: 48px 24px;
+    padding: 40px 20px;
+  }
+
+  .philosophy-quote {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .philosophy-quote br {
+    display: none;
   }
 
   .philosophy-values {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 16px;
   }
 
+  .value-card {
+    padding: 20px 16px;
+  }
+
+  .value-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 12px;
+  }
+
+  /* Services */
   .services-grid {
     gap: 16px;
   }
 
   .service-card {
-    padding: 32px 24px;
+    padding: 28px 20px;
   }
 
+  .service-number {
+    font-size: 2.5rem;
+    top: 16px;
+    right: 16px;
+  }
+
+  .service-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 16px;
+  }
+
+  .service-title {
+    font-size: 1.1rem;
+  }
+
+  .service-desc {
+    font-size: 0.85rem;
+  }
+
+  /* Portfolio */
   .portfolio-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* News */
+  .news-filter {
+    gap: 6px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .news-filter-btn {
+    padding: 8px 14px;
+    font-size: 0.72rem;
   }
 
   .news-item {
     flex-wrap: wrap;
     gap: 8px;
+    padding: 16px 0;
   }
 
+  .news-date {
+    font-size: 0.75rem;
+    min-width: auto;
+  }
+
+  .news-title {
+    width: 100%;
+    font-size: 0.85rem;
+  }
+
+  /* Team */
   .team-grid {
     grid-template-columns: 1fr;
   }
 
   .team-photo {
-    width: 160px;
-    height: 160px;
+    width: 140px;
+    height: 140px;
+  }
+
+  /* Careers */
+  .careers-intro h3 {
+    font-size: 1.3rem;
+  }
+
+  .careers-intro p {
+    font-size: 0.88rem;
+  }
+
+  .position-card {
+    padding: 24px 20px;
+  }
+
+  .position-title {
+    font-size: 1rem;
+  }
+
+  .position-desc {
+    font-size: 0.82rem;
+  }
+
+  .position-tags {
+    gap: 6px;
+  }
+
+  .position-tags span {
+    font-size: 0.7rem;
+    padding: 3px 10px;
+  }
+
+  .careers-cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .careers-cta .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  /* Funding CTA */
+  .funding-cta {
+    padding: 64px 0;
+  }
+
+  .funding-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .funding-text p {
+    font-size: 0.88rem;
+  }
+
+  .funding-text p br {
+    display: none;
+  }
+
+  .funding-actions .btn--lg {
+    padding: 16px 32px;
+    font-size: 0.88rem;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  /* Contact */
+  .contact-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .contact-info > p {
+    font-size: 0.88rem;
   }
 
   .form-row {
@@ -1673,25 +1892,63 @@ ul {
   }
 
   .contact-form {
-    padding: 32px 24px;
+    padding: 28px 20px;
+  }
+
+  .contact-form label {
+    font-size: 0.78rem;
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    padding: 12px 14px;
+    font-size: 16px;
+  }
+
+  .btn--full {
+    padding: 14px 24px;
+    font-size: 0.88rem;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 48px 0 24px;
   }
 
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 32px;
   }
 
-  .careers-cta {
-    flex-direction: column;
-    align-items: center;
+  .footer-logo {
+    font-size: 0.95rem;
   }
 
-  .hero-actions {
-    flex-direction: column;
-    align-items: center;
+  .footer-desc {
+    font-size: 0.78rem;
+    max-width: 100%;
   }
 
-  .funding-text p br {
-    display: none;
+  .footer-links h4 {
+    font-size: 0.78rem;
+    margin-bottom: 12px;
+  }
+
+  .footer-links a {
+    font-size: 0.82rem;
+  }
+
+  .footer-bottom p {
+    font-size: 0.72rem;
+  }
+
+  /* Back to top */
+  .back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
   }
 }
 
@@ -1700,25 +1957,85 @@ ul {
     padding: 0 16px;
   }
 
+  .hero-title {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+  }
+
+  .hero-label {
+    font-size: 0.65rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .about-heading {
+    font-size: 1.15rem;
+  }
+
   .about-stats {
     flex-direction: column;
     gap: 20px;
   }
 
+  .about-image-grid {
+    height: 160px;
+  }
+
+  .philosophy-quote {
+    font-size: 1.1rem;
+  }
+
+  .service-card {
+    padding: 24px 16px;
+  }
+
+  .service-title {
+    font-size: 1rem;
+  }
+
+  .service-desc {
+    font-size: 0.8rem;
+  }
+
   .portfolio-filter,
   .news-filter {
-    gap: 6px;
+    gap: 4px;
   }
 
   .filter-btn,
   .news-filter-btn {
-    padding: 6px 14px;
-    font-size: 0.75rem;
+    padding: 6px 12px;
+    font-size: 0.7rem;
   }
 
   .position-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
+  }
+
+  .position-card {
+    padding: 20px 16px;
+  }
+
+  .careers-intro h3 {
+    font-size: 1.15rem;
+  }
+
+  .funding-text h2 {
+    font-size: 1.3rem;
+  }
+
+  .contact-form {
+    padding: 24px 16px;
+  }
+
+  .footer {
+    padding: 40px 0 20px;
+  }
+
+  .footer-grid {
+    gap: 28px;
   }
 }
