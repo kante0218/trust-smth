@@ -2084,6 +2084,23 @@ ul {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .support-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .strategy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .program-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trustsmith-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 48px;
@@ -2231,29 +2248,96 @@ ul {
     padding: 40px 20px;
   }
 
-  .philosophy-quote {
+  .manifesto-line {
+    font-size: 0.95rem;
+    line-height: 1.9;
+  }
+
+  .manifesto-line--accent {
+    font-size: 1.05rem;
+  }
+
+  .manifesto-break {
+    height: 16px;
+  }
+
+  /* Support */
+  .support-heading {
     font-size: 1.3rem;
-    line-height: 1.7;
-    margin-bottom: 32px;
   }
 
-  .philosophy-quote br {
-    display: none;
+  .support-card {
+    padding: 28px 20px;
   }
 
-  .philosophy-values {
-    grid-template-columns: 1fr;
-    gap: 16px;
+  .support-card-header h4 {
+    font-size: 1.05rem;
   }
 
-  .value-card {
+  .support-list li {
+    font-size: 0.82rem;
+  }
+
+  /* Strategy */
+  .strategy-card {
+    padding: 28px 20px;
+  }
+
+  .strategy-amount {
+    font-size: 2rem;
+  }
+
+  /* Founder */
+  .founder-profile {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .founder-name {
+    font-size: 1.5rem;
+  }
+
+  .founder-career-item {
+    flex-direction: column;
+    gap: 12px;
     padding: 20px 16px;
   }
 
-  .value-icon {
-    width: 44px;
-    height: 44px;
-    margin-bottom: 12px;
+  .founder-career-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Program */
+  .program-card {
+    padding: 28px 20px;
+  }
+
+  .program-card-title {
+    font-size: 1.1rem;
+  }
+
+  /* Trustsmith */
+  .trustsmith-link {
+    padding: 12px 20px;
+    font-size: 0.82rem;
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  /* Outline */
+  .outline-row {
+    grid-template-columns: 120px 1fr;
+    padding: 18px 0;
+  }
+
+  .outline-label {
+    font-size: 0.78rem;
+  }
+
+  .outline-value {
+    font-size: 0.88rem;
   }
 
   /* Services */
@@ -2541,6 +2625,54 @@ ul {
 
   .funding-text h2 {
     font-size: 1.3rem;
+  }
+
+  /* Support */
+  .support-heading {
+    font-size: 1.15rem;
+  }
+
+  .support-card {
+    padding: 24px 16px;
+  }
+
+  /* Strategy */
+  .strategy-card {
+    padding: 24px 16px;
+  }
+
+  .strategy-tag {
+    font-size: 0.78rem;
+    padding: 6px 12px;
+  }
+
+  /* Founder */
+  .founder-avatar-placeholder {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* Program */
+  .program-card {
+    padding: 24px 16px;
+  }
+
+  .program-card-desc {
+    font-size: 0.82rem;
+  }
+
+  /* Outline */
+  .outline-row {
+    grid-template-columns: 100px 1fr;
+    gap: 12px;
+  }
+
+  .outline-label {
+    font-size: 0.75rem;
+  }
+
+  .outline-value {
+    font-size: 0.82rem;
   }
 
   .contact-form {
