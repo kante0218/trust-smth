@@ -1779,20 +1779,11 @@ ul {
   flex-shrink: 0;
 }
 
-.founder-avatar-placeholder {
+.founder-avatar-img {
   width: 120px;
   height: 120px;
-  background: var(--color-bg-light);
   border: 3px solid var(--color-accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.founder-avatar-placeholder svg {
-  width: 48px;
-  height: 48px;
-  color: var(--color-text-light);
+  object-fit: cover;
 }
 
 .founder-name {
@@ -2647,7 +2638,7 @@ ul {
   }
 
   /* Founder */
-  .founder-avatar-placeholder {
+  .founder-avatar-img {
     width: 100px;
     height: 100px;
   }
