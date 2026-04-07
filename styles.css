@@ -779,7 +779,7 @@ ul {
 .service-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-  border-color: var(--color-primary);
+  border-color: var(--color-accent);
 }
 
 .service-number {
@@ -794,7 +794,8 @@ ul {
 }
 
 .service-card:hover .service-number {
-  color: rgba(0, 0, 0, 0.06);
+  color: var(--color-accent);
+  opacity: 0.4;
 }
 
 /* Touch device support for service cards */
@@ -802,11 +803,12 @@ ul {
   .service-card:active {
     transform: translateY(-2px);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    border-color: var(--color-primary);
+    border-color: var(--color-accent);
   }
 
   .service-card:active .service-number {
-    color: rgba(0, 0, 0, 0.06);
+    color: var(--color-accent);
+    opacity: 0.4;
   }
 }
 
